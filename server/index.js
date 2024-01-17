@@ -56,6 +56,7 @@ passport.deserializeUser((id, done) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(helmet());
 app.use(cors());
 app.use(expressSession({ secret: process.env.SessionKey || 'thisissecrekey', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
